@@ -1,0 +1,114 @@
+name:                ndray
+version:             0.1.0.0
+synopsis:            A simple Haskell raytracer
+homepage:            http://github.com/mikeswoods/ndray
+license:             BSD3
+license-file:        LICENSE
+author:              Mike Woods
+maintainer:          mikeswoods@gmail.com
+copyright:           2016 Mike Woods
+category:            Graphics
+build-type:          Simple
+cabal-version:       >=1.10
+
+source-repository head
+  type:     git
+  location: https://github.com/mikeswoods/ndray
+
+library
+  default-language:    Haskell2010
+  hs-source-dirs:      src
+  build-depends:       base >= 4.7 && < 5
+                     , array
+                     , directory
+                     , dlist
+                     , lens
+                     , mtl
+                     , options
+                     , parsec
+                     , random
+                     , repa
+                     , repa-io
+                     , transformers
+                     , vector
+                     , QuickCheck
+                     , JuicyPixels
+  exposed-modules:     Raytracer.Render
+                     , Raytracer.Args
+                     , Raytracer.Scenes.Demo
+                     , Raytracer.Prelude
+  other-modules:       Raytracer.Objects.Attributes
+                     , Raytracer.Objects.Object
+                     , Raytracer.Objects.Predefined
+                     , Raytracer.Objects.Primitive
+                     , Raytracer.Parsers.WaveFront
+                     , Raytracer.Scene.Scene
+                     , Raytracer.Space.KDTree
+                     , Raytracer.Space.Tensor
+                     , Raytracer.Surface.Mapping
+                     , Raytracer.Surface.Material
+                     , Raytracer.Surface.Texture
+                     , Raytracer.Surface.Texture.Basic
+                     , Raytracer.Surface.Texture.Image
+                     , Raytracer.Utils.File
+                     , Raytracer.Utils.Math
+                     , Raytracer.Utils.Math.Matrix
+                     , Raytracer.World.AABB
+                     , Raytracer.World.Camera
+                     , Raytracer.World.Color
+                     , Raytracer.World.Const
+                     , Raytracer.World.Intersect
+                     , Raytracer.World.Lights
+                     , Raytracer.Utils.Array
+                     , Raytracer.Utils.Display
+
+executable ndray
+  default-language:    Haskell2010
+  hs-source-dirs:      app
+                     , src
+  main-is:             Main.hs
+  ghc-options:         -Wall -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       array
+                     , base >= 4.7 && < 5
+                     , directory
+                     , dlist
+                     , lens
+                     , mtl
+                     , ndray
+                     , options
+                     , parsec
+                     , random
+                     , repa
+                     , repa-io
+                     , transformers
+                     , vector
+                     , JuicyPixels
+                     , QuickCheck
+  other-modules:       Raytracer.Args
+                     , Raytracer.Objects.Attributes
+                     , Raytracer.Objects.Object
+                     , Raytracer.Objects.Predefined
+                     , Raytracer.Objects.Primitive
+                     , Raytracer.Parsers.WaveFront
+                     , Raytracer.Prelude
+                     , Raytracer.Render
+                     , Raytracer.Scene.Scene
+                     , Raytracer.Scenes.Demo
+                     , Raytracer.Space.KDTree
+                     , Raytracer.Space.Tensor
+                     , Raytracer.Surface.Mapping
+                     , Raytracer.Surface.Material
+                     , Raytracer.Surface.Texture
+                     , Raytracer.Surface.Texture.Basic
+                     , Raytracer.Surface.Texture.Image
+                     , Raytracer.Utils.Array
+                     , Raytracer.Utils.Display
+                     , Raytracer.Utils.File
+                     , Raytracer.Utils.Math
+                     , Raytracer.Utils.Math.Matrix
+                     , Raytracer.World.AABB
+                     , Raytracer.World.Camera
+                     , Raytracer.World.Color
+                     , Raytracer.World.Const
+                     , Raytracer.World.Intersect
+                     , Raytracer.World.Lights

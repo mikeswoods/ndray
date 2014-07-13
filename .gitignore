@@ -8,5 +8,5 @@ dist/
 build/
 .DS_Store
 Main
-rt
-*.prof
+.stack-work/logs
+.stack-work/install
