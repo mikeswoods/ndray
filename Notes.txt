@@ -1,0 +1,43 @@
+
+This file contains some useful notes that I've compiled over the course of this
+project -Mike
+
+
+--------------------------------------------------------------------------------
+Affine Transformations: how to transform an object in an object's 
+intersection test function
+--------------------------------------------------------------------------------
+
+Given a 4x4 transformation matrix M:
+
+1) For every POINT parameter that defines an object, transform it by M
+ > A point parameter, in the case of a sphere is its origin
+ > A point parameter, in the case of a box are the 2 points that constitute
+   the minimum and maximum extent 
+
+2) Transform the intersection point with M
+
+3) Transform the ray's origin and direction with inverse(M)
+
+3) Transform the normal at the point of intersection with transpose(inverse(M))
+
+
+--------------------------------------------------------------------------------
+Setting command line options in GHCI
+--------------------------------------------------------------------------------
+
+> :set args -S "Simple/simple2" -w 120 -h 80 -z 1 -r 1 -s 1  -l "-2.0,2,-6.0" -a "0.0,1.0,0.0" -B
+> :set args -S "simple5" -w 80 -h 80 -z 0 -r 0 -s 0  -l "0.0,0,-6.0" -a "0.0,0.0,0.0" 
+> :set args -S "octahedron" -w 80 -h 80 -z 1 -r 0 -s 0  -l "2.0,0,-6.0" -a "0.0,0.0,0.0" -B
+> :set args -S "teapot" -w 80 -h 80 -z 0 -r 0 -s 0  -l "0.0,0,-6.0" -a "0.0,0.0,0.0" 
+> :set args -S "icosahedron" -w 80 -h 80 -z 0 -r 0 -s 0  -l "2.4,0,-6.0" -a "0.0,0.0,0.0" 
+
+--------------------------------------------------------------------------------
+Refractive indices for various materials
+Taken from http://en.wikipedia.org/wiki/List_of_refractive_indices
+--------------------------------------------------------------------------------
+Vacuum n = 1.00
+Water: n = 1.31
+Glass: n = 1.49
+Diamond: n = 2.419
+ 

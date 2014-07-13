@@ -1,0 +1,12 @@
+*.swp
+*.swo
+*.o
+*.p_o
+*.hi
+*.prof
+dist/
+build/
+.DS_Store
+Main
+rt
+*.prof
